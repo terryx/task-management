@@ -4,7 +4,7 @@
   "description": "Jiraish task management app",
   "main": "index.js",
   "scripts": {
-    "build": "node ./build.js",
+    "build": "./node_modules/webpack/bin/webpack.js -p --config webpack.build.config.js",
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.development.config.js --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,10 +35,7 @@
     "babel-preset-react": "^6.5.0",
     "lodash": "^4.13.1",
     "react": "latest",
-    "react-dnd": "latest",
-    "react-dnd-html5-backend": "latest",
     "react-dom": "latest",
-    "react-sortable-hoc": "0.0.1",
     "rxjs": "latest"
   }
 }

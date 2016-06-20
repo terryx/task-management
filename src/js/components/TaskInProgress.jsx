@@ -29,6 +29,10 @@ class TaskInProgress extends React.Component {
 
       this.setState(items);
     });
+
+    ProjectStream.sortSubject.subscribe((response) => {
+      this.setState(response)
+    });
   }
 
   componentWillUnmount() {

@@ -27,7 +27,10 @@ class TaskDone extends React.Component {
       }
 
       this.setState(items);
+    });
 
+    ProjectStream.sortSubject.subscribe((response) => {
+      this.setState(response)
     });
   }
 
