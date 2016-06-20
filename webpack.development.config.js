@@ -2,13 +2,7 @@
 var config = require('./webpack.config');
 var path = require('path');
 
-//for more info, look into webpack.config.js
-//this will add a new object into default settings
-// config.entry = [
-//   'webpack/hot/dev-server',
-//   'webpack-dev-server/client?http://localhost:8080',
-// ];
-config.entry.app.push('webpack/hot/dev-server', 'webpack-dev-server/client?http://localhost:8080');
+config.entry.app.push('webpack/hot/dev-server', 'webpack-dev-server/client?http://localhost:9000');
 
 config.output = {
   path: path.resolve('dist'),
@@ -24,14 +18,7 @@ config.devServer = {
     colors: true
   },
   host: '0.0.0.0',
-  hot: true,
-  //UNCOMMENT THIS if you need to call you backend server
-  // proxy: {
-  //   '/api/**': {
-  //     target: 'http://localhost:3000',
-  //     secure: false
-  //   }
-  // }
+  port: 9000
 };
 
 module.exports = config;

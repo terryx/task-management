@@ -1,0 +1,88 @@
+body {
+  background-color: #dedede;
+}
+.inputbox {
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+}
+.inputbox label {
+  margin-right: 0.5em;
+}
+.header {
+  padding: 1em;
+  background-color: #696565;
+}
+.header h3 {
+  color: white;
+  float: left;
+}
+.clearfix {
+  clear: both;
+}
+
+.project-wrap {
+  display: flex;
+}
+
+/* total counter */
+
+.total-counter {
+  padding-right: 1em;
+}
+.label-total {
+  color: black;
+  text-align: center;
+  font-weight: 600;
+}
+.divider {
+  margin-bottom: 1em;
+}
+
+/* counter */
+
+.counter-box {
+  padding: 0.5em;
+  border-radius: 2px;
+  background-color: white;
+}
+.counter-box .count {
+  font-weight: 600;
+  text-align: center;
+}
+.counter-box .label {
+  color: #696565;
+  font-size: 0.8em;
+}
+.counter {
+  float: right;
+}
+
+/* section divider */
+
+.section {
+  flex: 1;
+  z-index: 100;
+  margin: 0 0.5em;
+}
+
+/* project */
+.project-panel {
+  height: 100%;
+}
+
+*[draggable=true] {
+  -moz-user-select:none;
+  -khtml-user-drag: element;
+  cursor: move;
+}
+
+.project {
+  background-color: white;
+  padding: 1em 0.5em;
+  margin-top: 0.2em;
+  cursor: move;
+}
+
+.over {
+  border: 2px dashed #999999;
+}
