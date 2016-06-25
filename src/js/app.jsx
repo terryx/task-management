@@ -1,13 +1,9 @@
 'use strict';
-
 import React from 'react'
 import ReactDOM from 'react-dom';
-import ProjectStream from 'streams/ProjectStream';
 import InputBox from 'components/InputBox';
 import TotalCounter from 'components/TotalCounter';
-import TaskTodo from 'components/TaskTodo';
-import TaskInProgress from 'components/TaskInProgress';
-import TaskDone from 'components/TaskDone';
+import Task from 'components/Task';
 import '../css/app.css';
 
 class App extends React.Component {
@@ -19,16 +15,18 @@ class App extends React.Component {
     return (
       <div>
         <InputBox/>
-        <TotalCounter />
-          <div className="project-wrap">
-          <TaskTodo />
-          <TaskInProgress />
-          <TaskDone />
-          </div>
+        <TotalCounter/>
+        <div className="project-wrap">
+          <Task title="Todo" section="todos"/>
+          <Task title="Investigation" section="investigation"/>
+          <Task title="In Progress" section="inprogress"/>
+          <Task title="In Staging" section="instaging"/>
+          <Task title="Done" section="done"/>
+        </div>
       </div>
     )
   }
-}
 
+}
 ReactDOM.render(
   <App/>, document.getElementById('app'));

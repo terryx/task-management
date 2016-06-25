@@ -1,28 +1,22 @@
-'use strict';
-
 import React from 'react'
-import ProjectStream from 'streams/ProjectStream';
+import DataStream from 'streams/DataStream';
 import CounterBox from 'components/CounterBox';
 
 class TotalCounter extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      count: 0
-    }
+    this.state = DataStream.totalItems
   }
 
   componentDidMount() {
-    ProjectStream.todoSubject.subscribe(response => {
-      this.setState({
-        count: ++this.state.count
-      });
-    })
+    DataStream.subject.subscribe(response => {
+      this.setState(DataStream.totalItems);
+    });
   }
 
   componentWillUnmount() {
-    ProjectStream.todoSubject.dispose();
+    DataStream.subject.dispose();
   }
 
   render() {

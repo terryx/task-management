@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectStream from 'streams/ProjectStream';
+import DataStream from 'streams/DataStream';
 
 class InputBox extends React.Component {
   constructor() {
@@ -10,7 +10,7 @@ class InputBox extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    ProjectStream.addProject(this.refs.projectName.value);
+    DataStream.addItem(this.refs.projectName.value);
     this.refs.addProject.reset();
     this.refs.projectName.blur();
   }

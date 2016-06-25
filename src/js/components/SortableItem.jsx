@@ -1,43 +1,46 @@
 import React from 'react';
-import ProjectStream from 'streams/ProjectStream';
+import DataStream from 'streams/DataStream';
 
 class SortableItem extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleDragStart = this.handleDragStart.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
   }
 
   handleDragStart(e) {
     e.dataTransfer.effectAllowed = 'move';
-    ProjectStream.drag({
-      index: this.props.index,
-      value: this.props.value,
-      section: this.props.section
-    });
 
-    e.dataTransfer.setData('item', this.props.value);
-    e.dataTransfer.setData('section', this.props.section);
+    // e.dataTransfer.setData('index', this.props.index);
+    // e.dataTransfer.setData('item', this.props.value);
+    // e.dataTransfer.setData('section', this.props.section);
+    DataStream.drag(this.props);
   }
 
   handleDrop(e) {
-    const project = {
-      index: this.props.index,
-      value: this.props.value,
-      section: this.props.section
-    };
+    // const project = {
+    //   index: this.props.index,
+    //   value: this.props.value,
+    //   section: this.props.section
+    // };
+    //
+    // if (project.section !== ProjectStream.dragData.section) {
+    //   return;
+    // }
+    //
+    // ProjectStream.sort(project);
 
-    if (project.section !== ProjectStream.dragData.section) {
-      return;
-    }
-
-    ProjectStream.sort(project);
+    DataStream.drop(this.props);
   }
 
   render() {
     return (
-      <div draggable="true" className="project" onDragStart={this.handleDragStart} onDrop={this.handleDrop}>
-        {this.props.value}
+      <div
+        draggable="true"
+        className="project"
+        onDragStart={this.handleDragStart}
+        onDrop={this.handleDrop}>
+        {this.props.item.name}
       </div>
     )
   }
